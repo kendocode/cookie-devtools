@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="options.css">
+  <title>Cookie DevTools — Settings</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Cookie DevTools Settings</h1>
+
+    <section>
+      <h2>Appearance</h2>
+      <label class="setting-row">
+        <span>Theme</span>
+        <select id="theme">
+          <option value="auto">Auto (system)</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>Monitor</h2>
+      <label class="setting-row">
+        <span>Max change log entries</span>
+        <select id="max-log">
+          <option value="100">100</option>
+          <option value="250">250</option>
+          <option value="500" selected>500</option>
+          <option value="1000">1000</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>Data</h2>
+      <div class="setting-row">
+        <span>Clear all profiles and change log</span>
+        <button id="btn-clear-data" class="action-btn danger">Clear All Data</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <p>Cookie DevTools v0.1.0</p>
+      <p>Developer-focused cookie manager with real-time monitoring, environment profiles, and one-click export.</p>
+      <p>No ads. No tracking. No data collection.</p>
+    </section>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>Cookie DevTools</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cookie DevTools</h1>
+      <div class="header-actions">
+        <button id="btn-theme" class="icon-btn" title="Toggle dark mode">◐</button>
+        <button id="btn-settings" class="icon-btn" title="Settings">⚙</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="cookies">Cookies</button>
+      <button class="tab" data-tab="monitor">Monitor</button>
+      <button class="tab" data-tab="profiles">Profiles</button>
+    </nav>
+
+    <!-- Cookies Tab -->
+    <section id="tab-cookies" class="tab-content active">
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Filter cookies..." autocomplete="off">
+        <div class="toolbar-actions">
+          <button id="btn-add" class="action-btn" title="Add cookie">+ Add</button>
+          <button id="btn-export" class="action-btn" title="Export">Export ▾</button>
+          <button id="btn-delete-all" class="action-btn danger" title="Delete all for this site">Clear</button>
+        </div>
+      </div>
+      <div class="domain-info" id="domain-info"></div>
+      <div id="cookie-list" class="cookie-list"></div>
+      <div id="cookie-empty" class="empty-state" style="display:none;">No cookies found for this site.</div>
+    </section>
+
+    <!-- Monitor Tab -->
+    <section id="tab-monitor" class="tab-content">
+      <div class="toolbar">
+        <span class="monitor-status" id="monitor-status">● Monitoring</span>
+        <button id="btn-clear-log" class="action-btn">Clear Log</button>
+      </div>
+      <div id="change-log" class="change-log"></div>
+      <div id="monitor-empty" class="empty-state" style="display:none;">No cookie changes recorded yet.</div>
+    </section>
+
+    <!-- Profiles Tab -->
+    <section id="tab-profiles" class="tab-content">
+      <div class="toolbar">
+        <input type="text" id="profile-name" placeholder="Profile name..." autocomplete="off">
+        <button id="btn-save-profile" class="action-btn">Save Current</button>
+      </div>
+      <div id="profile-list" class="profile-list"></div>
+      <div id="profiles-empty" class="empty-state" style="display:none;">No saved profiles. Save your current cookies as a named profile for quick switching.</div>
+    </section>
+
+    <!-- Export Menu (hidden by default) -->
+    <div id="export-menu" class="dropdown-menu" style="display:none;">
+      <button data-format="json">JSON</button>
+      <button data-format="netscape">Cookie File (curl/wget)</button>
+      <button data-format="curl">curl command</button>
+      <button data-format="header">Cookie header</button>
+    </div>
+
+    <!-- Cookie Editor Modal -->
+    <div id="cookie-editor" class="modal" style="display:none;">
+      <div class="modal-content">
+        <h2 id="editor-title">Add Cookie</h2>
+        <div class="form-grid">
+          <label>Name <input type="text" id="edit-name"></label>
+          <label>Value <input type="text" id="edit-value"></label>
+          <label>Domain <input type="text" id="edit-domain"></label>
+          <label>Path <input type="text" id="edit-path" value="/"></label>
+          <label>Expires <input type="datetime-local" id="edit-expires"></label>
+          <div class="form-row">
+            <label class="checkbox-label"><input type="checkbox" id="edit-secure"> Secure</label>
+            <label class="checkbox-label"><input type="checkbox" id="edit-httponly"> HttpOnly</label>
+            <label class="checkbox-label"><input type="checkbox" id="edit-session"> Session</label>
+          </div>
+          <label>SameSite
+            <select id="edit-samesite">
+              <option value="unspecified">Unspecified</option>
+              <option value="lax">Lax</option>
+              <option value="strict">Strict</option>
+              <option value="no_restriction">None</option>
+            </select>
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-editor-cancel" class="action-btn">Cancel</button>
+          <button id="btn-editor-save" class="action-btn primary">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span class="version">v0.1.0</span>
+      <span id="cookie-count" class="cookie-count"></span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
