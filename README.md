@@ -31,11 +31,22 @@ Developer-focused cookie manager for Chrome with real-time monitoring, environme
 - No ads, no tracking, no data collection
 - Minimal, fast popup UI
 
-## Installation (Development)
+## Installation
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode"
-3. Click "Load unpacked" and select this directory
+### From Chrome Web Store
+*Coming soon*
+
+### From GitHub Release
+1. Download the latest `cookie-devtools.zip` from [Releases](https://github.com/kendocode/cookie-devtools/releases)
+2. Unzip into a folder
+3. Open `chrome://extensions/` and enable "Developer mode"
+4. Click "Load unpacked" and select the unzipped folder
+5. Click the Cookie DevTools icon on any website
+
+### From Source
+1. Clone this repo
+2. Open `chrome://extensions/` and enable "Developer mode"
+3. Click "Load unpacked" and select the repo directory
 4. Click the Cookie DevTools icon on any website
 
 ## Permissions
@@ -44,10 +55,10 @@ See [PRIVACY_POLICY.md](PRIVACY_POLICY.md) for detailed permission explanations.
 
 ## Store Listing Copy
 
-### Title (max 45 chars)
+### Title
 Cookie DevTools
 
-### Short Description (max 132 chars)
+### Short Description
 Developer cookie manager with real-time monitoring, environment profiles, and one-click export to curl. No tracking.
 
 ### Detailed Description
